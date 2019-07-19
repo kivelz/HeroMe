@@ -1,8 +1,10 @@
-package com.iss.herome;
+package com.iss.herome.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.iss.herome.R;
 
 public class MainActivity extends AppCompatActivity {
 
