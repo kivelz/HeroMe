@@ -1,16 +1,38 @@
 package com.iss.herome.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.net.Uri;
 import android.os.Bundle;
 
+import com.iss.herome.Fragments.MainFragment;
 import com.iss.herome.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FragmentManager mgr = getSupportFragmentManager();
+        Fragment frag = mgr.findFragmentById(R.id.fragment_container);
+
+        if(frag == null) {
+            frag = new MainFragment();
+           FragmentTransaction trans = mgr.beginTransaction();
+           trans.add(R.id.fragment_container, frag);
+           trans.commit();
+        }
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
