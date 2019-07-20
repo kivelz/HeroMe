@@ -9,9 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.iss.herome.Fragments.MainFragment;
+import com.iss.herome.Fragments.PickPowerFragment;
 import com.iss.herome.R;
 
-public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener, PickPowerFragment.PickPowerInteractionListener {
 
 
     @Override
@@ -31,8 +32,19 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
 
     }
 
+    public void loadPickPowerScreen() {
+        PickPowerFragment pickPowerFragment = new PickPowerFragment();
+        this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pickPowerFragment).addToBackStack(null).commit();
+    }
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    @Override
+    public void onPowerFragmentInteraction(Uri uri) {
+
+    }
+
 }
