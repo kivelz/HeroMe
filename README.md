@@ -4,5 +4,5 @@ tells you which power you obtain based on the choices you made.
 Made with android studio with fragments.
 
 
-![Image description](https://user-images.githubusercontent.com/28724299/61590669-526e3b00-abef-11e9-9188-382460968a88.png)
+![Image description](https://user-images.githubusercontent.com/28724299/61590708-ae38c400-abef-11e9-9aab-c3417173b587.png)
 
