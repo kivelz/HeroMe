@@ -139,12 +139,15 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
         if(btn == btnAccident) {
             leftDrawable = R.drawable.lightning;
+            MainActivity.howYouGotIt = "By Accident";
         }
         else if(btn == btnGenetics) {
             leftDrawable = R.drawable.atomic;
+            MainActivity.howYouGotIt = "Born With it";
         }
         else if(btn == btnBorn) {
             leftDrawable = R.drawable.rocket;
+            MainActivity.howYouGotIt="Genetics Mutation";
         }
 
         btn.setCompoundDrawablesWithIntrinsicBounds(leftDrawable,0,R.drawable.item_selected,0);

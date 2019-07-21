@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,6 +15,11 @@ import com.iss.herome.R;
 
 public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener, PickPowerFragment.PickPowerInteractionListener {
 
+    public static String howYouGotIt = "";
+    public static int imageHowYouGotIt = 0;
+    public static String primaryPower = "";
+    public static int imagePrimaryPower=0;
+    public static String name= "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pickPowerFragment).addToBackStack(null).commit();
     }
     public void loadBackStory() {
-
+        Intent story = new Intent(MainActivity.this, storyActivity.class);
+        startActivity(story);
     }
 
     @Override
@@ -49,5 +56,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
     public void onPowerFragmentInteraction(Uri uri) {
 
     }
+
 
 }

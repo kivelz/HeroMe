@@ -14,14 +14,7 @@ import android.widget.Button;
 import com.iss.herome.Activity.MainActivity;
 import com.iss.herome.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link PickPowerFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link PickPowerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class PickPowerFragment extends Fragment implements View.OnClickListener{
 
     private static final String ARG_PARAM1 = "param1";
@@ -43,14 +36,6 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener{
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PickPowerFragment.
-     */
 
     public static PickPowerFragment newInstance(String param1, String param2) {
         PickPowerFragment fragment = new PickPowerFragment();
@@ -93,6 +78,7 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view) {
                 MainActivity mainActivity = (MainActivity) getActivity();
+                mainActivity.loadBackStory();
             }
         });
         bStory.setEnabled(false);
@@ -102,11 +88,6 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener{
         return v;
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onPowerFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -143,16 +124,28 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener{
 
         if(btn == btnTurtle){
             leftDrawable = R.drawable.turtle_power;
+            MainActivity.name = "Michael Angelo";
+            MainActivity.primaryPower ="Turtle Power";
         }  else if(btn == btnLaser) {
             leftDrawable = R.drawable.laser_vision;
+            MainActivity.name = "Cyclops";
+            MainActivity.primaryPower = "Laser Beams";
         } else if(btn == btnWebSling) {
             leftDrawable = R.drawable.spiderweb;
+            MainActivity.name = "Spiderman";
+            MainActivity.name = "Web Slinging";
         } else if(btn == btnFlight) {
             leftDrawable = R.drawable.superman_crest;
+            MainActivity.name = "Superman";
+            MainActivity.primaryPower="Flight";
         } else if(btn == btnLighting) {
             leftDrawable = R.drawable.lightning;
+            MainActivity.name ="Thor";
+            MainActivity.primaryPower="Lightning";
         } else if(btn == btnStr) {
-            leftDrawable = R.drawable.lightning;
+            leftDrawable = R.drawable.super_strength;
+            MainActivity.name = "Hulk";
+            MainActivity.primaryPower="Super Strength";
         }
 
         btn.setCompoundDrawablesWithIntrinsicBounds(leftDrawable,0,R.drawable.item_selected, 0);
@@ -171,7 +164,6 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener{
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface PickPowerInteractionListener {
-        // TODO: Update argument type and name
         void onPowerFragmentInteraction(Uri uri);
     }
 }
